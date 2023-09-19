@@ -103,3 +103,20 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       alert("Please select an answer.");
     }
   });
+
+  let timer;
+  let secondsRemaining = 60; // Set the timer duration in seconds
+
+  function startTimer() {
+    timer = setInterval(function () {
+      secondsRemaining--;
+      const timerElement = document.getElementById("timer");
+      timerElement.textContent = `Time Left: ${secondsRemaining} seconds`;
+  
+      if (secondsRemaining <= 0) {
+        clearInterval(timer);
+        alert("Time's up!");
+        showNextQuestion();
+      }
+    }, 1000);
+  }
