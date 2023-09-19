@@ -9,3 +9,20 @@ h1{
     margin: auto;
     position: relative;
 }
+label{
+    background:greenyellow;
+    color:#222;
+    font-weight: 500;
+    width: 100%;
+    border:1px solid #222;
+    padding:10 px;
+    margin:10px;
+    text-align:left;
+    border-radius: 4px;
+    cursor:pointer;
+    transition: all 0.3s;
+}
+label:hover{
+    background: pink;
+    color:blueviolet;
+}

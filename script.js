@@ -1,5 +1,5 @@
 
-let time = 60;
+let timer = 60;
 let score = 0;
 let currentQuestionIndex = 0;
 
@@ -25,6 +25,7 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       
       if (userAnswer === correctAnswer) {
         alert("Correct!");
+        score++;
       } else {
         alert("Incorrect. The correct answer is alerts.");
       }
@@ -46,6 +47,7 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       
       if (userAnswer === correctAnswer) {
         alert("Correct!");
+        score++;
       } else {
         alert("Incorrect. The correct answer is parenthesis.");
       }
@@ -67,6 +69,7 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       
       if (userAnswer === correctAnswer) {
         alert("Correct!");
+        score++;
       } else {
         alert("Incorrect. The correct answer is All of the above.");
       }
@@ -88,6 +91,7 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       
       if (userAnswer === correctAnswer) {
         alert("Correct!");
+        score++;
       } else {
         alert("Incorrect. The correct answer is quotes");
       }
@@ -110,6 +114,7 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       
       if (userAnswer === correctAnswer) {
         alert("Correct!");
+        score++;
       } else {
         alert("Incorrect. The correct answer is console.log");
       }
@@ -118,7 +123,6 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
     }
   });
 
-  let timer;
   let secondsRemaining = 60; 
 
   function startTimer() {
@@ -134,3 +138,5 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       }
     }, 1000);
   }
+
+ 
