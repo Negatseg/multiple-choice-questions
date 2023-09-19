@@ -12,4 +12,4 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
-![Alt text](image.png)
+![image](https://github.com/Negatseg/multiple-choice-questions/assets/81937460/72533809-9ef1-4045-9a18-e2daef188d6b)
