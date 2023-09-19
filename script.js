@@ -1,3 +1,17 @@
+
+let time = 60;
+let score = 0;
+let currentQuestionIndex = 0;
+
+document.getElementById("start-button").addEventListener("click", () => {
+  startTimer();
+});
+
+
+
+
+
+
 document.getElementById("quizForm").addEventListener("submit", function (e) {
     e.preventDefault(); 
   
