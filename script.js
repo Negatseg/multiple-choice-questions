@@ -179,7 +179,7 @@ function endQuiz() {
 //   console.log(`Initials: ${initials}, Score: ${score}`);
 // }
 
-document.getElementById("initials-submit").addEventListener("submit", function (e) {
+document.getElementById("initials-submit").addEventListener("click", function (e) {
   e.preventDefault();
   saveScore();
 });
@@ -197,4 +197,15 @@ function saveScore() {
   localStorage.setItem('playerScore', JSON.stringify({ initials, score }));
 
   console.log(`Initials: ${initials}, Score: ${score} - Score saved successfully.`);
+}
+
+function retrieveScore() {
+  const storedScore = localStorage.getItem('playerScore');
+  
+  if (storedScore) {
+    const { initials, score } = JSON.parse(storedScore);
+    console.log(`Retrieved Score - Initials: ${initials}, Score: ${score}`);
+  } else {
+    console.log('No score found in local storage.');
+  }
 }
