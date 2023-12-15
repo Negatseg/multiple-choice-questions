@@ -9,6 +9,8 @@
 <body>
   <div class="box">
     <h5>view high scores</h5>
+
+    <section id="top">
     <div>
         <h1>Coding quiz challenge</h1>
         <h5>Try to answer the following code related questions with in the time limit.
@@ -19,6 +21,9 @@
     <div>
       <button id="start-button">Start</button>
     </div>
+  </section>
+
+    <section id = "middle" style="display:none">
       <form id="quizForm">
         <p>1. Commonly used data types Do not include?</p>
         <label>
@@ -36,7 +41,7 @@
         <br>
         <input type="submit" value="Submit">
       </form>
-      <form id="quizForm1">
+      <form id="quizForm1" style="display:none">
         <p>2. The condition in an if/else statement enclosed with _______?</p>
         <label>
           <input type="radio" name="enclosed" value="quotes"> quotes
@@ -53,7 +58,7 @@
         <br>
         <input type="submit" value="Submit">
       </form>
-      <form id="quizForm2">
+      <form id="quizForm2" style="display:none">
         <p>3. Arrays in javascript is used to store?</p>
         <label>
           <input type="radio" name="store" value="numbers and strings"> numbers and strings
@@ -70,7 +75,7 @@
         <br>
         <input type="submit" value="Submit">
       </form>
-      <form id="quizForm3">
+      <form id="quizForm3" style="display:none">
         <p>4. String values must be enclosed in--------when being assigned by variables?</p>
         <label>
           <input type="radio" name="assigned" value="commas"> commas
@@ -87,7 +92,7 @@
         <br>
         <input type="submit" value="Submit">
       </form>
-      <form id="quizForm4">
+      <form id="quizForm4" style="display:none">
         <p>5. A very useful tool used during development and debugging for printing content fo rth edebugger is?</p>
         <label>
           <input type="radio" name="debugging" value="Javascript"> Javascript
@@ -105,6 +110,16 @@
         <input type="submit" value="Submit">
       </form>
       <p id="timer">Time Left: 60 seconds</p>
+    </section>
+
+    <section id="bottom" style="display:none">
+      <h2>Quiz is over!</h2>
+      <p>Score: <span id="final-score"></span></p>
+      <p>Initials: </p>
+      <input id="initials" type="text" />
+      <button id="initials-submit">submit</button>
+    </section>
+
   </div>
     <script src="script.js"></script>
 </body>
