@@ -173,5 +173,28 @@ function endQuiz() {
   document.getElementById("final-score").textContent=score
 }
 
+// function saveScore() {
+//   const initials = prompt('Enter your initials:');
+//   // Save the initials and score as needed, e.g., store in a database
+//   console.log(`Initials: ${initials}, Score: ${score}`);
+// }
 
+document.getElementById("initials-submit").addEventListener("submit", function (e) {
+  e.preventDefault();
+  saveScore();
+});
 
+function saveScore() {
+  const initialsInput = document.getElementById("initials");
+  const initials = initialsInput.value;
+
+  if (initials.trim() === "") {
+    alert("Please enter your initials.");
+    return;
+  }
+
+  // Save the initials and score using local storage
+  localStorage.setItem('playerScore', JSON.stringify({ initials, score }));
+
+  console.log(`Initials: ${initials}, Score: ${score} - Score saved successfully.`);
+}
