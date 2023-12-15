@@ -209,3 +209,13 @@ function retrieveScore() {
     console.log('No score found in local storage.');
   }
 }
+
+document.getElementById("initials-submit").addEventListener("submit", function (e) {
+  e.preventDefault();
+  saveScore();
+});
+
+function summnaryScore() {
+  document.getElementById("bottom").style.display="none";
+    document.getElementById("summary").style.display="block"
+}
