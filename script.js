@@ -199,23 +199,47 @@ function saveScore() {
   console.log(`Initials: ${initials}, Score: ${score} - Score saved successfully.`);
 }
 
+// function retrieveScore() {
+//   const storedScore = localStorage.getItem('playerScore');
+  
+//   if (storedScore) {
+//     const { initials, score } = JSON.parse(storedScore);
+//     console.log(`Retrieved Score - Initials: ${initials}, Score: ${score}`);
+//   } else {
+//     console.log('No score found in local storage.');
+//   }
+// }
+
+// document.getElementById("initials-submit").addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   summaryScore();
+// });
+
+// function summaryScore() {
+//   document.getElementById("bottom").style.display="none";
+//     document.getElementById("summary").style.display="block"
+// }
+
 function retrieveScore() {
   const storedScore = localStorage.getItem('playerScore');
-  
+
   if (storedScore) {
     const { initials, score } = JSON.parse(storedScore);
     console.log(`Retrieved Score - Initials: ${initials}, Score: ${score}`);
+    summaryScore(initials, score); // Corrected the function name
   } else {
     console.log('No score found in local storage.');
   }
 }
 
-document.getElementById("initials-submit").addEventListener("submit", function (e) {
-  e.preventDefault();
-  saveScore();
-});
+function summaryScore(initials, score) {
+  document.getElementById("bottom").style.display = "none";
+  document.getElementById("summary").style.display = "block";
 
-function summnaryScore() {
-  document.getElementById("bottom").style.display="none";
-    document.getElementById("summary").style.display="block"
+  // Create a new paragraph element to display the initials and score
+  const p = document.createElement('p');
+  p.textContent = `Initials: ${initials}, Score: ${score}`;
+
+  // Append the new paragraph to the summary element
+  document.getElementById("summary").appendChild(p);
 }
