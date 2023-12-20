@@ -5,8 +5,8 @@ let score = 0;
 let currentQuestionIndex = 0;
 
 document.getElementById("start-button").addEventListener("click", () => {
-  document.getElementById("top").style.display="none";
-  document.getElementById("middle").style.display="block";
+  document.getElementById("top").style.display = "none";
+  document.getElementById("middle").style.display = "block";
   startTimer();
 
 });
@@ -32,14 +32,14 @@ document.getElementById("quizForm").addEventListener("submit", function (e) {
       score++;
     } else {
       alert("Incorrect. The correct answer is alerts.");
-      secondsRemaining-=10
+      secondsRemaining -= 10
     }
 
-    document.getElementById("quizForm").style.display="none";
-    
-    document.getElementById("quizForm1").style.display="block";
-    
-    
+    document.getElementById("quizForm").style.display = "none";
+
+    document.getElementById("quizForm1").style.display = "block";
+
+
   } else {
     alert("Please select an answer.");
   }
@@ -61,12 +61,12 @@ document.getElementById("quizForm1").addEventListener("submit", function (e) {
       score++;
     } else {
       alert("Incorrect. The correct answer is parenthesis.");
-      secondsRemaining-=10
+      secondsRemaining -= 10
     }
 
-    document.getElementById("quizForm1").style.display="none";
-    
-    document.getElementById("quizForm2").style.display="block";
+    document.getElementById("quizForm1").style.display = "none";
+
+    document.getElementById("quizForm2").style.display = "block";
   } else {
     alert("Please select an answer.");
   }
@@ -88,11 +88,11 @@ document.getElementById("quizForm2").addEventListener("submit", function (e) {
       score++;
     } else {
       alert("Incorrect. The correct answer is All of the above.");
-      secondsRemaining-=10
+      secondsRemaining -= 10
     }
-    document.getElementById("quizForm2").style.display="none";
-    
-    document.getElementById("quizForm3").style.display="block";
+    document.getElementById("quizForm2").style.display = "none";
+
+    document.getElementById("quizForm3").style.display = "block";
   } else {
     alert("Please select an answer.");
   }
@@ -114,12 +114,12 @@ document.getElementById("quizForm3").addEventListener("submit", function (e) {
       score++;
     } else {
       alert("Incorrect. The correct answer is quotes");
-      secondsRemaining-=10
+      secondsRemaining -= 10
     }
 
-    document.getElementById("quizForm3").style.display="none";
-    
-    document.getElementById("quizForm4").style.display="block";
+    document.getElementById("quizForm3").style.display = "none";
+
+    document.getElementById("quizForm4").style.display = "block";
   } else {
     alert("Please select an answer.");
   }
@@ -142,9 +142,9 @@ document.getElementById("quizForm4").addEventListener("submit", function (e) {
       score++;
     } else {
       alert("Incorrect. The correct answer is console.log");
-      secondsRemaining-=10
+      secondsRemaining -= 10
     }
-   endQuiz()
+    endQuiz()
   } else {
     alert("Please select an answer.");
   }
@@ -168,9 +168,9 @@ function startTimer() {
 
 function endQuiz() {
   clearInterval(timer);
-  document.getElementById("bottom").style.display="block";
-  document.getElementById("middle").style.display="none";
-  document.getElementById("final-score").textContent=score
+  document.getElementById("bottom").style.display = "block";
+  document.getElementById("middle").style.display = "none";
+  document.getElementById("final-score").textContent = score
 }
 
 // function saveScore() {
@@ -192,54 +192,49 @@ function saveScore() {
     alert("Please enter your initials.");
     return;
   }
+  const storedScore = JSON.parse(localStorage.getItem('playerScore')) || [];
+
+  var newScore = { initials, score }
+  storedScore.push(newScore)
 
   // Save the initials and score using local storage
-  localStorage.setItem('playerScore', JSON.stringify({ initials, score }));
+  localStorage.setItem('playerScore', JSON.stringify(storedScore));
 
   console.log(`Initials: ${initials}, Score: ${score} - Score saved successfully.`);
+
+  retrieveScore();
 }
 
-// function retrieveScore() {
-//   const storedScore = localStorage.getItem('playerScore');
-  
-//   if (storedScore) {
-//     const { initials, score } = JSON.parse(storedScore);
-//     console.log(`Retrieved Score - Initials: ${initials}, Score: ${score}`);
-//   } else {
-//     console.log('No score found in local storage.');
-//   }
-// }
 
-// document.getElementById("initials-submit").addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   summaryScore();
-// });
-
-// function summaryScore() {
-//   document.getElementById("bottom").style.display="none";
-//     document.getElementById("summary").style.display="block"
-// }
 
 function retrieveScore() {
-  const storedScore = localStorage.getItem('playerScore');
+  const storedScore = JSON.parse(localStorage.getItem('playerScore'));
+
+
 
   if (storedScore) {
-    const { initials, score } = JSON.parse(storedScore);
+    //const { initials, score } = JSON.parse(storedScore);
     console.log(`Retrieved Score - Initials: ${initials}, Score: ${score}`);
-    summaryScore(initials, score); // Corrected the function name
+    summaryScore(storedScore); // Corrected the function name
   } else {
     console.log('No score found in local storage.');
   }
 }
 
-function summaryScore(initials, score) {
+function summaryScore(storedScore) {
   document.getElementById("bottom").style.display = "none";
   document.getElementById("summary").style.display = "block";
 
-  // Create a new paragraph element to display the initials and score
-  const p = document.createElement('p');
-  p.textContent = `Initials: ${initials}, Score: ${score}`;
+  for (let i = 0; i < storedScore.length; i++) {
 
-  // Append the new paragraph to the summary element
-  document.getElementById("summary").appendChild(p);
-}
+    // Create a new paragraph element to display the initials and score
+    const p = document.createElement('p');
+    p.textContent = `Initials: ${storedScore[i].initials}, Score: ${storedScore[i].score}`;
+
+    // Append the new paragraph to the summary element
+    document.getElementById("summary").appendChild(p);
+
+  }
+
+
+};
